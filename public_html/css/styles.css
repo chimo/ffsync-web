@@ -1,0 +1,84 @@
+body {
+    background: url(../images/bg.gif);
+    padding: 0 30px;
+    word-wrap: break-word;
+}
+
+h1 {
+    color: #757575;
+    font-family: Georgia;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+dl {
+    margin-top: 0;
+}
+
+a {
+    color: #5A859F;
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: underline;
+}
+
+.nav {
+    background-color: #000;
+    font-family: Georgia;
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 0;
+    padding: 10px;
+    padding-left: 5px;
+}
+
+.nav li {
+    display: inline;
+    margin: 0 15px;
+}
+
+#content {
+    background-color: #FFF;
+    padding: 20px;
+}
+
+#content > dl > dt {
+    font-weight: bold;
+    padding: 5px 5px 0 24px;
+}
+
+#content > dl > dd {
+    margin: 0 0 12px 0;
+    padding: 0 5px 5px 5px;
+}
+
+dd dt {
+    display: none; /* TODO: wb-invisible */
+}
+
+dd.url {
+    font-size: 80%;
+}
+
+.tag {
+    float: left;
+    line-height: 32px;
+    margin: 0;
+    margin-right: 5px;
+}
+
+dt + .tag {
+    background: url(../images/tag_s.png) no-repeat left center;
+    padding-left: 20px;
+}
+
+.tag:after {
+    content: ', ';
+}
+
+.tag:last-child:after {
+    content: '';
+}

@@ -1,0 +1,12 @@
+<?php
+
+$config = array(
+    'username' => '',       // Your sync username
+    'password' => '',       // Your sync password
+    'sync_key' => '',       // Firefox: Preferences > Sync > Manage Account > My Recovery Key
+    'url_base' => '',       // URL to the sync server
+    'include' => array(),   // Only display bookmarks tagged with these
+    'exclude' => array()    // Do not display bookmarks tagged with these (takes precedence over 'include' if a tag appears in both)
+);
+
+?>
