@@ -1,0 +1,3 @@
+[submodule "private/lib/firefox-sync-client-php"]
+	path = private/lib/firefox-sync-client-php
+	url = https://github.com/chimo/firefox-sync-client-php.git
