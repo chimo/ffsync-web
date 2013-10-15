@@ -14,11 +14,9 @@ class Bookmarks extends ArrayObject {
      *
      *  @param Array $bkms Array of Mozilla Bookmarks
      */
-
+    // public function Bookmarks($bkms, $tag) {
     public function Bookmarks($bkms) {
         global $config;
-
-        $bkms = array_reverse($bkms); // Most recent first
 
         if (count($config['include']) > 0) {
             foreach ($bkms as $bkm) {
