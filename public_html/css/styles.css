@@ -82,3 +82,18 @@ dt + .tag {
 .tag:last-child:after {
     content: '';
 }
+
+#footer {
+    background-color: #000;
+    color: #FFF;
+    padding: 5px 20px;
+}
+
+.login {
+    margin: 0 auto;
+}
+
+.login input, .login textarea {
+    display: block;
+    margin-bottom: 12px;
+}
