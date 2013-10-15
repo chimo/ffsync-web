@@ -46,9 +46,10 @@ class Bookmarks extends ArrayObject {
     /**
      * Prints Bookmarks HTML
      */
-    public function html() {
+    public function html($user) {
         echo $this->template->render(array(
-                'bookmarks' => $this
+                'bookmarks' => $this,
+                'user' => $user
             )
         );
     }
