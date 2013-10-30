@@ -4,8 +4,8 @@
 
 <dl>
 {% for bookmark in bookmarks %}
-    <dt><a href="{{ bookmark.uri }}">{{ bookmark.title }}</a></dt>
-    <dd style="overflow: hidden;">
+    <dt class="title"><a href="{{ bookmark.uri }}">{{ bookmark.title }}</a></dt>
+    <dd style="overflow: hidden;" class="details">
         <dl>
         {% if bookmark.description %}
             <dt class="description">Description</dt>
@@ -22,8 +22,18 @@
             {% endfor %}
         {% endif %}
         </dl>
-        {% if username %}
-        <ul style="clear: both;"><li><a href="/delete/{{ bookmark.id }}">delete</a></li></ul>
+        {% if app.session.get('username') %}
+        <ul class="actions">
+            <li>
+                <a class="share" href="/share/{{ bookmark.id }}">share</a>
+            </li>
+            <li>
+                <a class="edit" href="/edit/{{ bookmark.id }}">edit</a>
+            </li>
+            <li>
+                <a class="delete" href="/delete/{{ bookmark.id }}">delete</a>
+            </li>
+        </ul>
         {% endif %}
     </dd>
 {% endfor %}

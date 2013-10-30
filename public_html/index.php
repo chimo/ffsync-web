@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
-
 require_once('../private/config.php');
 require_once('../private/lib/firefox-sync-client-php/sync.php');
 require_once('../private/ffobjects.php');
@@ -28,8 +25,7 @@ $app->register(new Silex\Provider\SessionServiceProvider());
 // List bookmarks
 $app->get('/', function () use ($app, $bookmarks) {
     return $app['twig']->render('bookmarks.tpl', array(
-        'bookmarks'  => $bookmarks,
-        'username' => $app['session']->get('username')
+        'bookmarks'  => $bookmarks
     ));
 
 });
@@ -115,9 +111,15 @@ $app->get('/delete/{id}', function (Silex\Application $app, $id) use ($sync) {
     return $app->redirect('/');
 });
 
-// TODO: Edit bookmark
-$app->get('/edit/{id}', function ($id) use ($app) {
+// Edit bookmark
+$app->get('/edit/{id}', function ($id) use ($app, $sync) {
+    if (!$app['session']->get('username')) {
+        return $app->redirect('/login');
+    }
 
+    $bookmark = $sync->get_bookmark($id);
+
+    return $app['twig']->render('add.tpl', array('bookmark' => $bookmark));
 });
 
 // TODO: Filter bookmarks by tag(s)
