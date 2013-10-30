@@ -117,7 +117,7 @@ $app->get('/edit/{id}', function ($id) use ($app, $sync) {
         return $app->redirect('/login');
     }
 
-    $bookmark = $sync->get_bookmark($id);
+    $bookmark = new Bookmark($sync->get_bookmark($id)); // TODO: Error handling
 
     return $app['twig']->render('add.tpl', array('bookmark' => $bookmark));
 });
