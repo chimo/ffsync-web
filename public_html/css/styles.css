@@ -40,6 +40,16 @@ a:hover, a:active, a:focus {
     margin: 0 15px;
 }
 
+.flash-message {
+    background-color: #F0F0F0;
+    border: 1px solid #BBB;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+
 #content {
     background-color: #FFF;
     padding: 20px;
