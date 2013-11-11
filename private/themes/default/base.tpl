@@ -3,12 +3,12 @@
     <head>
         {% block head %}
         <link rel="stylesheet" href="/css/styles.css" />
-        <title>{% block title %}Chimo's Bookmarks{% endblock %}</title>
+        <title>{% block title %}ffsync-web{% endblock %}</title>
         {% endblock %}
     </head>
     <body>
         <header>
-            <h1>Chimo's Bookmarks</h1>
+            <h1><a href="/">ffsync-web</a></h1>
 
             {% include 'top-nav.tpl' %}
         </header>
