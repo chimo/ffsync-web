@@ -15,6 +15,10 @@
         {% endif %}
             <dt class="url">URL</dt>
             <dd class="url"><a href="{{ bookmark.uri }}">{{ bookmark.uri }}</a></dd>
+        {% if bookmark.keyword %}
+            <dt class="keyword"></dt>
+            <dd class="keyword">{{ bookmark.keyword }}</dd>
+        {% endif %}
         {% if bookmark.tags|length > 0 %}
             <dt class="tags"></dt>
             {% for tag in bookmark.tags %}

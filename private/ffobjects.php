@@ -71,6 +71,7 @@ class Bookmark {
         $this->id = $bkm->id;
         $this->tags = $bkm->tags;
         $this->description = $bkm->description;
+        $this->keyword = $bkm->keyword;
     }
 }
 ?>
