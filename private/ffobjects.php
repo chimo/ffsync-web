@@ -1,6 +1,4 @@
 <?php
-require_once 'lib/Twig/Autoloader.php';
-
 /**
  * A collection of Bookmark objects
  *
@@ -31,27 +29,6 @@ class Bookmarks extends ArrayObject {
                 }
             }
         }
-
-        Twig_Autoloader::register();
-
-        $loader = new Twig_Loader_Filesystem('../private/templates');
-
-        $twig = new Twig_Environment($loader, array(
-            'cache' => '../private/templates/cache'
-        ));
-
-        $this->template = $twig->loadTemplate('bookmarks.tpl');
-    }
-
-    /**
-     * Prints Bookmarks HTML
-     */
-    public function html($user) {
-        echo $this->template->render(array(
-                'bookmarks' => $this,
-                'user' => $user
-            )
-        );
     }
 }
 

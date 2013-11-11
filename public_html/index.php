@@ -20,8 +20,16 @@ $records = $sync->collection_full('bookmarks'); // TODO: Error handling
 $bookmarks = new Bookmarks($records);
 
 // Twig templates
+$theme = __DIR__ . '/../private/themes/';
+
+if (isset($config['theme']) && file_exists($theme . $config['theme'])) {
+    $theme .= $config['theme'];
+} else {
+    $theme .= 'default';
+}
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-        'twig.path' => __DIR__ . '/../private/templates'
+    'twig.path' => $theme // Note: This can accept an array of paths (fallbacks)
 ));
 
 // Sessions
