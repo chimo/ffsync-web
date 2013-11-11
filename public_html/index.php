@@ -1,6 +1,10 @@
 <?php
 
-require_once('../private/config.php');
+if ((include_once('../private/config.php')) === false) {
+    // TODO: Better message
+    die("Couldn't find file <b>/private/config.php</b>. Make sure to rename <b>config.php.dist</b> after you've configured it.");
+}
+
 require_once('../private/lib/firefox-sync-client-php/sync.php');
 require_once('../private/ffobjects.php');
 require_once('../private/lib/silex/vendor/autoload.php');
