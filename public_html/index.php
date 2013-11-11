@@ -20,8 +20,6 @@ if ($config['debug'] === true) {
 }
 
 $sync = new Firefox_Sync($config['username'], $config['password'], $config['sync_key'], $config['url_base']);
-$records = $sync->collection_full('bookmarks'); // TODO: Error handling
-$bookmarks = new Bookmarks($records);
 
 // Twig templates
 $theme = __DIR__ . '/../private/themes/';
@@ -40,7 +38,16 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 // List bookmarks
-$app->get('/', function () use ($app, $bookmarks) {
+$app->get('/', function () use ($app, $sync) {
+    $records = $sync->collection_full('bookmarks'); // TODO: Error handling
+    $bookmarks = new Bookmarks($records);
+
+    // TODO: Support filtering by multiple tags
+    //       I guess we should support AND and OR logic(?)
+    if ($app['request']->get('tag')) {
+        $bookmarks = $bookmarks->filterByTags(array($app['request']->get('tag')));
+    }
+
     return $app['twig']->render('bookmarks.tpl', array(
         'bookmarks'  => $bookmarks
     ));

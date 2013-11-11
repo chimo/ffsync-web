@@ -30,6 +30,23 @@ class Bookmarks extends ArrayObject {
             }
         }
     }
+
+    public function filterByTags($tag) {
+        $filtered = array();
+
+        foreach ($this as $bookmark)  {
+            if (is_array($bookmark->tags)) {
+                $common = array_intersect($tag, $bookmark->tags);
+
+                if (count($common) !== 0) {
+                    array_push($filtered, $bookmark);
+                }
+            }
+        }
+
+        // FIXME: Should return Bookmarks object
+        return $filtered;
+    }
 }
 
 /**
