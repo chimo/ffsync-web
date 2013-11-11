@@ -8,10 +8,15 @@ require_once('../private/lib/silex/vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 
 $app = new Silex\Application();
+
+if ($config['debug'] === true) {
+    ini_set('display_errors', 'On');
+    error_reporting(E_ALL);
+    $app['debug'] = true;
+}
+
 $sync = new Firefox_Sync($config['username'], $config['password'], $config['sync_key'], $config['url_base']);
-// $records = $sync->collection_full('bookmarks', $limit, $offset); // TODO: Error handling
 $records = $sync->collection_full('bookmarks'); // TODO: Error handling
-// $bookmarks = new Bookmarks($records, $tag);
 $bookmarks = new Bookmarks($records);
 
 // Twig templates

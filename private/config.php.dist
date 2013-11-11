@@ -6,7 +6,8 @@ $config = array(
     'sync_key' => '',       // Firefox: Preferences > Sync > Manage Account > My Recovery Key
     'url_base' => '',       // URL to the sync server
     'include' => array(),   // Only display bookmarks tagged with these
-    'exclude' => array()    // Do not display bookmarks tagged with these (takes precedence over 'include' if a tag appears in both)
+    'exclude' => array(),   // Do not display bookmarks tagged with these (takes precedence over 'include' if a tag appears in both)
+    'debug' => false        // Anything else other than true will turn off debug mode
 );
 
 ?>
