@@ -1,2 +1,4 @@
 private/config.php
 private/templates/cache
+private/lib/silex/composer.lock
+private/lib/silex/vendor/
